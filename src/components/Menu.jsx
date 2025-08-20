@@ -20,7 +20,7 @@ const Menu = () => {
   const navLinks = ["Home", "About", "Gallery", "Services", "Contact"];
 
   return (
-    <nav className="md:hidden flex items-center justify-between px-6 py-4 bg-offwhite">
+    <nav className="md:hidden flex items-center justify-between px-3 py-4 bg-offwhite">
       {/* Logo */}
       <div className="w-12">
         <img src="/images/damiwills-logo.png" alt="" />
