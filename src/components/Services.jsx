@@ -54,7 +54,7 @@ export default function Services() {
       <h1 className="font-heading text-center text-5xl text-charcoal">
         Services
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:p-6">
         {rates.map((rate, index) => (
           <div
             key={index}
