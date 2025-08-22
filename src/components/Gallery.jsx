@@ -22,7 +22,7 @@ const Gallery = () => {
     setIsOpen(true);
   };
   return (
-    <section className="min-h-full">
+    <>
       <h1 className="text-5xl text-center text-charcoal font-heading font-semibold">
         Gallery
       </h1>
@@ -53,7 +53,7 @@ const Gallery = () => {
           }))}
         />
       )}
-    </section>
+    </>
   );
 };
 

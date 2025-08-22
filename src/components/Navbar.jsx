@@ -1,4 +1,4 @@
-const Navbar = () => {
+const Navbar = ({ scroll, sections }) => {
   return (
     <nav className="items-center sm:flex hidden justify-between py-4">
       {/* Logo */}
@@ -6,21 +6,36 @@ const Navbar = () => {
         <img src="/images/damiwills-logo.png" alt="logo" />
       </div>
       <div className=" text-charcoal flex gap-3 font-body ">
-        <a href="" className="hover:text-beige transition-colors duration-300">
+        <button
+          onClick={() => scroll(sections.hero)}
+          className="hover:text-beige transition-colors duration-300"
+        >
           Home
-        </a>
-        <a href="" className="hover:text-beige transition-colors duration-300">
+        </button>
+        <button
+          onClick={() => scroll(sections.about)}
+          className="hover:text-beige transition-colors duration-300"
+        >
           About
-        </a>
-        <a href="" className="hover:text-beige transition-colors duration-300">
+        </button>
+        <button
+          onClick={() => scroll(sections.gallery)}
+          className="hover:text-beige transition-colors duration-300"
+        >
           Gallery
-        </a>
-        <a href="" className="hover:text-beige transition-colors duration-300">
+        </button>
+        <button
+          onClick={() => scroll(sections.services)}
+          className="hover:text-beige transition-colors duration-300"
+        >
           Services
-        </a>
-        <a href="" className="hover:text-beige transition-colors duration-300">
+        </button>
+        <button
+          onClick={() => scroll(sections.contact)}
+          className="hover:text-beige transition-colors duration-300"
+        >
           Contact
-        </a>
+        </button>
       </div>
     </nav>
   );

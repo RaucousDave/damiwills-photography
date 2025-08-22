@@ -50,7 +50,7 @@ export default function Services() {
   ];
 
   return (
-    <section className="py-12">
+    <>
       <h1 className="font-heading text-center text-5xl text-charcoal">
         Services
       </h1>
@@ -94,6 +94,6 @@ export default function Services() {
           </p>
         </div>
       </div>
-    </section>
+    </>
   );
 }

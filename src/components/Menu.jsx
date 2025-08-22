@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
 
-const Menu = () => {
+const Menu = ({ scroll, sections }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuVariants = {
@@ -17,10 +17,16 @@ const Menu = () => {
     exit: { opacity: 0, transition: { duration: 0.3 } },
   };
 
-  const navLinks = ["Home", "About", "Gallery", "Services", "Contact"];
+  const navLinks = [
+    { label: "Home", ref: sections.hero },
+    { label: "About", ref: sections.about },
+    { label: "Gallery", ref: sections.gallery },
+    { label: "Services", ref: sections.services },
+    { label: "Contact", ref: sections.contact },
+  ];
 
   return (
-    <nav className="md:hidden flex items-center justify-between px-3 py-4 bg-offwhite">
+    <nav className="md:hidden flex items-center justify-between py-4 bg-offwhite">
       {/* Logo */}
       <div className="w-12">
         <img src="/images/damiwills-logo.png" alt="" />
@@ -31,15 +37,6 @@ const Menu = () => {
         className="text-2xl cursor-pointer md:hidden"
         onClick={() => setIsOpen(true)}
       />
-
-      {/* Desktop Nav */}
-      <div className="hidden md:flex gap-6 font-body">
-        {navLinks.map((link) => (
-          <a key={link} href="#" className="hover:text-beige transition-colors">
-            {link}
-          </a>
-        ))}
-      </div>
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -71,8 +68,8 @@ const Menu = () => {
 
               {/* Links */}
               {navLinks.map((link, index) => (
-                <motion.a
-                  key={link}
+                <motion.button
+                  key={index}
                   href="#"
                   className="hover:text-beige font-body text-lg"
                   initial={{ opacity: 0, x: 20 }}
@@ -81,10 +78,13 @@ const Menu = () => {
                     x: 0,
                     transition: { delay: 0.15 * index },
                   }}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    scroll(link.ref);
+                    setIsOpen(false);
+                  }}
                 >
-                  {link}
-                </motion.a>
+                  {link.label}
+                </motion.button>
               ))}
             </motion.div>
           </>
